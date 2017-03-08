@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>登录</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../../resources/images/favicon.ico" th:href="@{/resources/images/favicon.ico}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+<body>
+<div th:replace="nav_header :: navHeader">nav header</div>
+<div class="container" style="padding: 0px 7% 0px 7%">
+
+	<form th:fragment="login" action="/login" method="post">
+		<div id="modal-login" class="modal fade " role="dialog" data-backdrop="static">
+			<div class="modal-dialog" style="padding: 10px">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" align="center">登录</h4>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-danger" style="margin-top: 5px; display: none;" role="alert">
+							用户已存在
+						</div>
+						<div class="input-group" style="margin-top: 10px">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </span>
+							<input id="login-id" type="text" class="form-control" placeholder="用户名/邮箱"/>
+						</div>
+
+						<div class="input-group" style="margin-top: 10px">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        </span>
+							<input id="login-pwd" type="password" class="form-control" placeholder="密码"/>
+						</div>
+
+						<div style="margin-top: 10px; margin-left: 2px" align="left">
+							<input type="checkbox" aria-label="Checkbox for following text input"/>
+							&nbsp;记住我
+						</div>
+
+						<button id="btn-login" type="submit" class="btn btn-success btn-block"
+								style="margin-top: 20px;">
+							登陆
+						</button>
+						<p align="right" style="padding: 10px">
+							还没有账号？<a id="register" href="javascript:redirect2register();">免费注册</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</form>
+
+
+	<form th:fragment="register" method="post">
+		<div id="modal-register" class="modal fade " role="dialog" data-backdrop="static">
+			<div class="modal-dialog" style="padding: 10px">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+						<h4 class="modal-title" align="center">免费注册</h4>
+					</div>
+					<div class="modal-body">
+						<div class="input-group" style="margin-top: 10px">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </span>
+							<input id="reg-email" type="text" class="form-control" placeholder="用户名/邮箱"/>
+						</div>
+						<div class="input-group" style="margin-top: 10px">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        </span>
+							<input id="reg-pwd" type="password" class="form-control" placeholder="密码"/>
+						</div>
+						<div class="input-group" style="margin-top: 10px">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        </span>
+							<input id="reg-re-pwd" type="password" class="form-control" placeholder="再次输入密码"/>
+						</div>
+						<input id="reg-username" type="password" class="form-control" placeholder="再次输入密码"
+								style="margin-top:10px"/>
+						<button id="btn-register" type="button" class="btn btn-primary"
+								style="margin-top: 10px; width: 100%">注册
+						</button>
+						<p align="right" style="padding: 10px">已有账号？<a href="javascript:redirect2login();">登陆</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	$("#modal-login").modal('show');
+
+	function redirect2register() {
+		$("#modal-login").modal('hide');
+		$("#modal-register").modal('show');
+	}
+
+	$("#btn-login").on("click", function () {
+		$.post("/login",
+				{
+					"username": $("#login-id").val(),
+					"pwd": $("#login-pwd").val()
+				},
+				function (resp) {
+					$("#modal-login").modal('hide');
+//						$("#content").html(resp);
+				}
+		);
+	});
+
+	function redirect2login() {
+		$("#modal-login").modal('show');
+		$("#modal-register").modal('hide');
+	}
+
+	$("#btn-register").on("click", function () {
+		$.post("/register",
+				{
+					"username": $("#login-id").val(),
+					"pwd": $("#login-pwd").val()
+				},
+				function (resp) {
+					window.location.href = '/my';
+				}
+		);
+
+	});
+
+</script>
+</body>
+</html>

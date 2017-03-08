@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>百科</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../../resources/images/favicon.ico" th:href="@{/resources/images/favicon.ico}"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+<body>
+<div th:replace="nav_header :: navHeader">nav header</div>
+<div class="container">
+	<div class="row">
+		<div class="navbar navbar-inverse" style="font-size: 15px; height: 30px; background: linear-gradient(to top,#6d3353 30%, #020031 100%)">
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="dropdown" th:each="categoryGroup : *{categories}">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span th:text="${categoryGroup.key.title}"></span>
+							<b class="caret"></b>
+						</a>
+
+						<ul class="dropdown-menu" style="background-color: #6d3353">
+							<li th:each="category : *{categoryGroup.value}" style=" padding: 5px">
+								<a th:id="${category.id}" class="category" th:href="'/baike/list/' + ${category.id}">
+									<span class="text-success" th:text="${category.title}" style="color: #27AE5F;"></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="row" style="border-left:5px solid #DC143C; border-top: 1px solid #eeeeee;">
+		<h4 class="text-danger" style="padding: 10px">热门推荐</h4>
+
+		<div class="media" style="padding: 5px">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object" data-holder-rendered="true"
+							src="http://pics.mama.cn/attachment/bk/con_pic/20150212/1423727128_7872.jpg"
+							style="width: 120px; height: 90px;"/>
+				</a>
+			</div>
+			<div class="media-body">
+				<a><h4 class="media-heading">二胎孕前检查</h4></a>
+				随着二胎政策的开放，抱着“一个太少，二个刚好”想法的爸比和妈咪正是筹谋着来一场轰轰烈烈的造人计划。但是开启造人计划前，你做妻双好了孕前检查了吗？孕前检查是胎儿健康发育的奠基石，在怀孕前3-6个月内，夫方最好先进行一次全面的身体检查。
+			</div>
+		</div>
+
+		<div class="media" style="padding: 5px">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object" data-holder-rendered="true"
+							src="http://pics.mama.cn/attachment/bk/con_pic/20141010/1412927848_88282.jpg"
+							style="width: 120px; height: 90px;"/>
+				</a>
+			</div>
+			<div class="media-body">
+				<a><h4 class="media-heading">碱性食物</h4></a>
+				对于食物是酸性还是碱性，可能很多人都存在着误区，认为品尝到的味道是酸的就是酸性的食物，拿柠檬来说，吃起来是酸的，但是柠檬却是碱性的。所以，酸碱性食物的区分，不是靠舌头品尝，味觉来判定的。从营养的角度看，酸性食物和碱性食物的合理搭配是身体健康的保障，所以需要认清食物的酸碱性，那么你知道碱性食物对人体的好处吗？碱性的食物又有哪些？
+			</div>
+		</div>
+	</div>
+	<div class="row" style="border-left:5px solid #00BFFF; border-bottom: 1px solid #eeeeee;">
+		<h4 class="text-danger" style="padding: 10px">宝妈必读</h4>
+
+		<div class="media " style="padding: 5px">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object" data-holder-rendered="true"
+							src="http://pics.mama.cn/attachment/bk/con_pic/20141022/1413972473_19763.jpg"
+							style="width: 120px; height: 90px;"/>
+				</a>
+			</div>
+			<div class="media-body">
+				<a><h4 class="media-heading">孕期抑郁</h4></a>
+				怀孕对于很多女性来数是非常幸福的事情，可是有部分孕妇却因为某些不愉快的经历或不懂得调节压力等原因而患有孕期抑郁症。因为孕妇妊娠期间很容易情绪不稳定非常焦虑甚至情绪失控，因此很多人往往会把孕妇抑郁也归为孕期正常表现而忽略其危害。女性怀孕后，家人要多关注女性的情绪，让其远离抑郁的折磨。关于孕期抑郁的相关知识，妈网百科为你解答。
+			</div>
+		</div>
+
+		<div class="media" style="padding: 5px">
+			<div class="media-left">
+				<a href="#">
+					<img class="media-object" data-holder-rendered="true"
+							src="http://pics.mama.cn/attachment/bk/con_pic/20140927/1411784150_5020.jpg"
+							style="width: 120px; height: 90px;"/>
+				</a>
+			</div>
+			<div class="media-body">
+				<a href="/baike/detail/14230">
+					<h4 class="media-heading">宫缩的症状</h4>
+					<span class="text-muted">
+						宫缩是临产的一个重要特征，简而言之，就是有规则的子宫收缩即宫缩。宫缩开始是不规则的，强度较弱，逐渐变得有规律，强度越来越强，持续时间延长，间隔时间缩短，如间隔时间在2—3分钟，持续50—60秒。在妊娠的最后几个月就是不规则宫缩，尤其是最后几周内。胎动后，只要把自己的手放在腹部就感觉腹部不时的变硬。这种宫缩无规律性，无周期性，也不会有疼痛感。那宫缩的症状具体是怎么样的呢，下面就详细的介绍下，使得女性对这样的情况，也都是有着很好的认识，在出现的时候，自己也都不会手忙脚乱的。
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<footer th:replace="nav_footer :: navFooter">nav footer</footer>
+<script type="text/javascript">
+	$(".collapse_trigger").each(function () {
+		$(this).attr("data-target", "#collapse_" + this.id);
+	});
+
+	$(".category").each(function () {
+		$(this).click(function () {
+			console.log(this.id);
+		});
+	});
+
+	$(".categoryGroup").each(function () {
+		$(this).popover({
+			html: true,
+			content: function () {
+				return $("#categoryGroup_" + this.id).html();
+			}
+		});
+	});
+
+	$('li.dropdown').mouseover(function() {
+		$(this).addClass('open');
+	}).mouseout(function() {
+		$(this).removeClass('open');
+	});
+
+</script>
+</body>
+</html>

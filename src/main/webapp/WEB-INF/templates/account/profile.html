@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>我的</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../../resources/images/favicon.ico" th:href="@{/resources/images/favicon.ico}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+<body>
+<div th:replace="nav_header :: navHeader">nav header</div>
+<div class="container" style="padding: 0px 7% 0px 7%">
+	<div class="row">
+		<div class="col-sm-3 col-md-3">
+			<div align="center">
+				<img class="img-rounded" data-holder-rendered="true" data-background-src="holder.js/140x140?text=头像"
+						src="../../../resources/images/avatar_def_1.png"/>
+			</div>
+			<span>LynxChina</span>
+			<div class="divider"/>
+			<span class="glyphicon glyphicon-time"></span> 2015年3月25日加入
+			<div class="divider"/>
+		</div>
+		<div class="col-sm-9 col-md-9" style="background: #fefefe; font-size: 15px">
+			<div class="alert alert-warning alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<strong>Pro tip: </strong> updating your profile with your name, location, and a profile picture helps
+				other GitHub users
+				get to know you.
+			</div>
+
+			<ul class="nav nav-tabs">
+				<li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-plus"></span>
+					Contributions</a></li>
+				<li role="presentation"><a href="#"><span class="glyphicon glyphicon-modal-window"></span> Repositories</a>
+				</li>
+				<li role="presentation"><a href="#"><span class="glyphicon glyphicon-flag"></span> Public activity</a>
+				</li>
+			</ul>
+
+			<div style="margin-top: 20px; border:1px solid #ccc;border-width: 1px; border-radius: 4px;border-color:#ddd;font-size: 14px;">
+				<div class="bg-info" style="padding: 9px 10px 10px"><strong>Popular repositories</strong></div>
+
+				<table class="table table-hover">
+					<tr>
+						<td style="padding: 10px"><a href="#">
+							<span class="glyphicon glyphicon-folder-close"></span>
+							<strong>argus-lib-android</strong></a>
+						</td>
+						<td style="padding: 10px" align="right"><a href="#">1 <span
+								class="glyphicon glyphicon-star"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 10px"><a href="#"><span class="glyphicon glyphicon-folder-close"></span>
+							<strong>lynxchina.github.io</strong></a></td>
+						<td style="padding: 10px" align="right"><a href="#">0 <span
+								class="glyphicon glyphicon-star"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 10px"><a href="#"><span class="glyphicon glyphicon-folder-close"></span>
+							<strong>argus-ios</strong></a></td>
+						<td style="padding: 10px" align="right"><a href="#">0 <span
+								class="glyphicon glyphicon-star"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 10px"><a href="#"><span class="glyphicon glyphicon-folder-close"></span>
+							<strong>argus-android</strong></a></td>
+						<td style="padding: 10px" align="right"><a href="#">0 <span
+								class="glyphicon glyphicon-star"></span></a>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding: 10px"><a href="#"><span class="glyphicon glyphicon-folder-close"></span>
+							<strong>argus-web</strong></a></td>
+						<td style="padding: 10px" align="right"><a href="#">0 <span
+								class="glyphicon glyphicon-star"></span></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<form method="POST" enctype="multipart/form-data" action="/upload_avatar">
+		File to upload: <input type="file" name="file"/><br/>
+		Name: <input type="text" name="name"/><br/> <br/>
+		<input type="submit" value="Press here to upload the file!"/>
+	</form>
+
+</div>
+<div th:replace="nav_footer :: navFooter">nav footer</div>
+<script type="text/javascript">
+	if (typeof Cookies.get('token') == 'undefined') {
+		//$("#modal-login").modal('show');
+	}
+
+	$('#drag').drag();
+</script>
+</body>
+</html>

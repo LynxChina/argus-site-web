@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>error</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../resources/images/favicon.ico"
+			th:href="@{/resources/images/favicon.ico}"/>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+
+<body>
+<div th:replace="nav_header :: navHeader">nav header</div>
+<div class="container" align="center">
+	<a href="javascript:undefined" onclick="showStack('test')">
+		<img th:src="@{/resources/images/404.jpg}" src="../../resources/images/404.jpg"/>
+	</a>
+</div>
+<div th:replace="nav_footer :: navFooter">nav footer</div>
+
+<div id="modal-stack" class="modal fade" role="dialog">
+	<div class="modal-dialog modal-lg" style="padding: 10px; width: 90%">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+				</button>
+				<h4 class="modal-title text-danger" align="center">Error Stack</h4>
+			</div>
+			<div class="modal-body" id="modal-body-method">
+				<pre class="text-warning" th:text="${msg}"
+						style="height: 500px; overflow-y: scroll; overflow-x: scroll;"/>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function showStack(msg) {
+		$("#modal-stack").modal('show');
+	}
+</script>
+</body>
+</html>

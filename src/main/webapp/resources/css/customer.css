@@ -1,0 +1,119 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body{
+    padding-top: 60px;
+    height: 100%;
+}
+
+.navbar-inner {
+    background-color: #f8f8f8;
+}
+
+
+.navbar-nav>li>a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.navbar-brand {
+    height: 40px;
+    padding-top: 10px;
+}
+.navbar {
+    min-height: 40px;
+}
+
+.single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.table-nonborder>tbody>tr>td {
+    border:none;
+}
+
+.table>tbody>tr>td:hover, .table>tbody>tr>td:hover{
+    background-color: #f3f3f3!important;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.divider {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.carousel-indicators .active {
+    background-color: #0f0;
+}
+
+.label, .label-default {
+    margin-left: 5px;
+    padding-left: 15px;
+    padding-right:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+    border-radius:.15em
+}
+
+.content img {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 6px #ccc;
+}
+
+.content p {
+    text-indent:2em;
+}
+
+.hlLine {
+    background-position: 0 -1702px;
+    background-repeat: repeat-x;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.hlLine .type {
+    margin-top: 10px;
+    padding-left: 15px;
+    background: #fff;
+    font-weight: normal;
+}
+
+.sBlock2 {
+    border: 1px solid #e1e1e1;
+    border-top: 8px solid #3CB371;
+}
+
+.quickNav {
+    margin-top: 10px;
+    list-style: none;
+}
+
+.quickNav li {
+    padding: 0px 0px 0px 0px;
+}
+
+.quickNav li .title {
+    background-image: none;
+    color: #228B22;
+    font-weight: bold;
+    height: 20px;
+    padding-left: 0px;
+    line-height: 20px;
+    font-size: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.foodList li {
+    float: left;
+    width: 74px;
+    height: 74px;
+    margin: 0 0 10px 10px;
+    display: inline;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>百科</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../../resources/images/favicon.ico" th:href="@{/resources/images/favicon.ico}"/>
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+<body>
+<div th:replace="nav_header :: navHeader">nav header</div>
+<div class="container">
+	<ol class="row breadcrumb">
+		<li><a href="/baike/index">百科</a></li>
+		<li class="text-muted">备孕</li>
+		<li class="text-danger">孕前检查</li>
+	</ol>
+
+	<div class="row" style="border-left:5px solid #40E0D0; border-top: 1px solid #eeeeee;">
+		<h4 class="text-danger" style="padding: 10px">热门推荐</h4>
+
+		<div class="col-md-6 col-sm-6" th:each="article : *{articles}" style="padding: 20px">
+			<div class="media" style="padding: 5px">
+				<div class="media-left">
+					<a href="#">
+						<img class="media-object img-rounded" data-holder-rendered="true"
+								src="http://pics.mama.cn/attachment/bk/con_pic/20150212/1423727128_7872.jpg"
+								th:src="${article.thumb}" style="width: 120px; height: 90px;"/>
+					</a>
+				</div>
+				<div class="media-body">
+					<a><h4 class="media-heading" th:text="${article.title}"></h4></a>
+					<span th:text="${article.desc}"></span>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+	<div th:switch="${test}">
+		<span th:case="1">test1</span>
+		<span th:case="2">test2</span>
+	</div>
+
+	<nav align="right">
+		<ul class="pagination">
+			<li>
+				<a href="#" aria-label="Previous">
+					<span aria-hidden="true">&#60;&#60;</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" aria-label="Previous">
+					<span aria-hidden="true">&#60;</span>
+				</a>
+			</li>
+
+			<li th:each="page : *{pages}" th:classappend="${curPage} == ${page} ? 'active'">
+				<a th:href="'?cur_page=' + ${page}"  th:text="${page}">1</a>
+			</li>
+
+			<li>
+				<a href="#" aria-label="Next">
+					<span aria-hidden="true">&#62;</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" aria-label="Next">
+					<span aria-hidden="true">&#62;&#62;</span>
+				</a>
+			</li>
+		</ul>
+	</nav>
+</div>
+<footer th:replace="nav_footer :: navFooter">nav footer</footer>
+<script type="text/javascript">
+	$(".collapse_trigger").each(function () {
+		$(this).attr("data-target", "#collapse_" + this.id);
+	});
+
+	$(".category").each(function () {
+		$(this).click(function () {
+			console.log(this.id);
+		});
+	});
+
+</script>
+</body>
+</html>

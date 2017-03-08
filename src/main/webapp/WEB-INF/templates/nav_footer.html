@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+	<link rel="shortcut icon" href="../resources/images/favicon.ico"
+			th:href="@{/resources/images/favicon.ico}"/>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="../../resources/css/bootstrap.min.css"
+			th:href="@{/resources/css/bootstrap.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/docs.min.css"
+			th:href="@{/resources/css/docs.min.css}"/>
+	<link rel="stylesheet" type="text/css" href="../../resources/css/customer.css"
+			th:href="@{/resources/css/customer.css}"/>
+
+	<script type="text/javascript" src="../../resources/js/jquery.min.js"
+			th:src="@{/resources/js/jquery.min.js}"></script>
+	<script type="text/javascript" src="../../resources/js/jquery.cookie.js"
+			th:src="@{/resources/js/jquery.cookie.js}"></script>
+	<script type="text/javascript" src="../../resources/js/bootstrap.min.js"
+			th:src="@{/resources/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" src="../../resources/js/holder.min.js"
+			th:src="@{/resources/js/holder.min.js}"></script>
+</head>
+
+<body>
+<footer th:fragment="navFooter" class="footer container bs-docs-footer">
+	<p>本网站项目及文档由<a href="http://www.github.com/lynxchina"> LynxChina </a>成员整理发布。</p>
+	<p>Powered By <a href="index">LynxChina</a>
+		<a id="scrollUp" href="#top" target="_self" style="position: fixed; z-index: 2147483647;"></a>
+	</p>
+</footer>
+</body>
+</html>
